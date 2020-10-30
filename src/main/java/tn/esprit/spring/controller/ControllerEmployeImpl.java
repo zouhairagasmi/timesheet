@@ -244,8 +244,6 @@ public class ControllerEmployeImpl  {
 		return employeService.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
 	}
 
-	
-
 	public String getPrenom() {
 		return prenom;
 	}
@@ -269,6 +267,9 @@ public class ControllerEmployeImpl  {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+
 
 	public boolean isActif() {
 		return actif;
