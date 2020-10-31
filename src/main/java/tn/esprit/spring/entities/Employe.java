@@ -17,6 +17,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+
 @Entity
 public class Employe implements Serializable {
 	
@@ -185,7 +186,6 @@ public class Employe implements Serializable {
 		return "Employe [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", password="
 				+ password + ", actif=" + actif + ", role=" + role + "]";
 	}
-	
 	
 	
 }
