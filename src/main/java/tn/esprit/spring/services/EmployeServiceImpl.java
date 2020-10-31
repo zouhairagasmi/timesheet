@@ -39,6 +39,8 @@ public class EmployeServiceImpl implements IEmployeService {
 		l.info("authenticate loading...");
 		return employeRepository.getEmployeByEmailAndPassword(login, password);
 	}
+	
+	/********************************Oussema In**************************/
 
 	@Override
 	public int addOrUpdateEmploye(Employe employe) {
@@ -136,6 +138,9 @@ public class EmployeServiceImpl implements IEmployeService {
 		employeRepository.delete(employe);
 	}
 	
+	/********************************Oussema Out**************************/
+	
+	/********************************Zohra In*******************************/
 	
 	public void deleteContratById(int contratId) {
 		
@@ -186,5 +191,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		return (List<Employe>) employeRepository.findAll();
 		
 	}
+	
+	/********************************Zohra Out*******************************/
 
 }
