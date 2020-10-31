@@ -1,5 +1,6 @@
 package tn.esprit.spring;
 import static org.junit.Assert.assertNotNull;
+
 import static org.junit.Assert.assertNull;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -61,10 +62,10 @@ public class EmployeServiceImplTest {
 	@Test
 	public void getNombreEmployeJPQL() {
 		
-				//Employe e1 = new Employe("zohra", "gasmi", "zohra@gmail.com", true, Role.INGENIEUR);
-				//Employe e2 = new Employe("oussema", "baccara", "oussema@gmail.com", true, Role.ADMINISTRATEUR);
-				//iemployeservice.addOrUpdateEmploye(e1);
-				//iemployeservice.addOrUpdateEmploye(e2);
+				Employe e1 = new Employe("zohra", "gasmi", "zohra@gmail.com", true, Role.INGENIEUR);
+				Employe e2 = new Employe("oussema", "baccara", "oussema@gmail.com", true, Role.ADMINISTRATEUR);
+				iemployeservice.addOrUpdateEmploye(e1);
+				iemployeservice.addOrUpdateEmploye(e2);
 				int nbr = iemployeservice.getNombreEmployeJPQL() ;
 				assertEquals(6, nbr);
 }
