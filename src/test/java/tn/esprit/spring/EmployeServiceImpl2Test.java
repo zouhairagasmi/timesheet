@@ -1,6 +1,7 @@
 package tn.esprit.spring;
 import static org.junit.Assert.assertNotNull;
 
+
 import static org.junit.Assert.assertNull;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -47,112 +48,13 @@ public class EmployeServiceImpl2Test {
 	@Autowired
 	EntrepriseRepository entrepriserepository;
 
-	
-	/*@Test
-	public void testdeleteContratById() {
-	
-				Contrat c = new Contrat(1, "cdi", 2);
-				iemployeservice.ajouterContrat(c);
-				iemployeservice.deleteContratById(c.getReference());
-				assertNull(employerepository.findById(c.getReference()));
-}
-
-*/
-	
 	@Test
-	public void getNombreEmployeJPQL() {
-		
-				Employe e1 = new Employe("zohra", "gasmi", "zohra@gmail.com", true, Role.INGENIEUR);
-				Employe e2 = new Employe("oussema", "baccara", "oussema@gmail.com", true, Role.ADMINISTRATEUR);
-				iemployeservice.addOrUpdateEmploye(e1);
-				iemployeservice.addOrUpdateEmploye(e2);
-				int nbr = iemployeservice.getNombreEmployeJPQL() ;
-				assertEquals(6, nbr);
-}
+	public void testaddOrUpdateEmploye() {
+	int x = iemployeservice.getNombreEmployeJPQL() ;
+	Employe e = new Employe("oussema", "baccara", "oussema@gmail.com", "123456", true, Role.ADMINISTRATEUR);
+	iemployeservice.addOrUpdateEmploye(e);		
+	assertEquals(x+1, iemployeservice.getNombreEmployeJPQL());
+	}
 	
-	
-	
-	/*@Test
-	public void getAllEmployeNamesJPQL() {
-		
-				List<String> L = iemployeservice.getAllEmployeNamesJPQL();
-				String name = L.get(0);
-				assertEquals("zohra", name);
-			}
-	*/
-	
-	/*@Test
-	public void getAllEmployes() {
-		
-				List<Employe> L = iemployeservice.getAllEmployes();
-				
-				assertEquals(6, L.size());
-			}*/
-		
-	
-	/*
-	@Test
-	public void getAllEmployeByEntreprise() {
-		
-				Entreprise E = entrepriserepository.findById(1).get();
-				List<Employe> L = iemployeservice.getAllEmployeByEntreprise(E);
-				String name = L.get(0).getNom();
-				assertEquals("zohra", name);
-			}
-	*/
-	/*
-	@Test
-	public void mettreAjourEmailByEmployeIdJPQL() {
-		
-				
-				int id = employerepository.findById(1).get().getId();
-				iemployeservice.mettreAjourEmailByEmployeIdJPQL("zohra.zohra@gmail.com", id);
-				assertEquals("zohra.zohra@gmail.com", employerepository.findById(1).get().getEmail());
-			}
-	*/
-	
-	
-	 public static Date parseDate(String date) {
-	     try {
-	         return new SimpleDateFormat("yyyy-MM-dd").parse(date);
-	     } catch (ParseException e) {
-	         return null;
-	     }
-	  }
-	  
-	/*
-	 @Test
-		public void deleteAllContratJPQL() {
-			
-		iemployeservice.deleteAllContratJPQL() ;
-		assertNull(contratrepository.findAll() );
-				
-	 }
-	
-	*/
-	 /*
-	 @Test
-		public void getSalaireByEmployeIdJPQL() {
-			
-		
-		assertEquals(1000, iemployeservice.getSalaireByEmployeIdJPQL(employerepository.findById(1).get().getId()));
-				
-	 }
-	 */
-	/* 
-	 @Test
-		public void getTimesheetsByMissionAndDate() {
-		 
-		Employe e = employerepository.findById(1).get();
-		Mission m = missionrepository.findById(1).get();
-		Date dateDebut = parseDate("2020-01-01");
-		Date dateFin = parseDate("2021-01-01");
-		 
-		
-	    List<Timesheet> t = iemployeservice.getTimesheetsByMissionAndDate(e, m, dateDebut, dateFin) ;
-	    assertNotNull(t);
-				
-	 }
-	*/
 
 }
