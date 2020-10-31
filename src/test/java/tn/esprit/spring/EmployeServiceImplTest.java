@@ -1,5 +1,6 @@
 package tn.esprit.spring;
 import static org.junit.Assert.assertNotNull;
+
 import static org.junit.Assert.assertNull;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
