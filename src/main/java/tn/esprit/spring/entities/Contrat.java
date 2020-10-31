@@ -100,5 +100,4 @@ public class Contrat implements Serializable {
 	
 	
 	
-	
 }
