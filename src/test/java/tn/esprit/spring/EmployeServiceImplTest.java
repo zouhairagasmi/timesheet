@@ -50,7 +50,7 @@ public class EmployeServiceImplTest {
 
 	
 	
-	@Test
+	/*@Test
 	public void testauthenticate() {
 	
 	 	Employe e1 = new Employe("zohrag", "Gasmi", "zohra@gmail.com","123456", true, Role.INGENIEUR);
@@ -60,7 +60,7 @@ public class EmployeServiceImplTest {
 		if (e == null)	
 		System.out.println("error");
 		assertEquals("zohrag", e.getNom());
-}
+}*/
 	
 	
 	/*@Test
@@ -74,7 +74,7 @@ public class EmployeServiceImplTest {
 
 */
 	
-	/*@Test
+	@Test
 	public void getNombreEmployeJPQL() {
 		
 				//Employe e1 = new Employe("zohra", "gasmi", "zohra@gmail.com", true, Role.INGENIEUR);
@@ -83,7 +83,7 @@ public class EmployeServiceImplTest {
 				//iemployeservice.addOrUpdateEmploye(e2);
 				int nbr = iemployeservice.getNombreEmployeJPQL() ;
 				assertEquals(6, nbr);
-}*/
+}
 	
 	
 	
