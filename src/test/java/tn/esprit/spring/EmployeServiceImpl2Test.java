@@ -55,6 +55,6 @@ public class EmployeServiceImpl2Test {
 	iemployeservice.addOrUpdateEmploye(e);		
 	assertEquals(x+1, iemployeservice.getNombreEmployeJPQL());
 	}
-	
+	//ok ok
 
 }
