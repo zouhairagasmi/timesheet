@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,8 @@ import tn.esprit.spring.repository.TimesheetRepository;
 
 @Service
 public class TimesheetServiceImpl implements ITimesheetService {
-	
 
+	private static final Logger l = Logger.getLogger(TimesheetServiceImpl.class);
 	@Autowired
 	MissionRepository missionRepository;
 	@Autowired
@@ -33,6 +34,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	
 	public int ajouterMission(Mission mission) {
 		missionRepository.save(mission);
+		l.info("mission ajouté" +mission);
 		return mission.getId();
 	}
     
@@ -41,6 +43,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		Departement dep = deptRepoistory.findById(depId).get();
 		mission.setDepartement(dep);
 		missionRepository.save(mission);
+		l.info("c bonnnn");
 		
 	}
 
@@ -55,6 +58,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		timesheet.setTimesheetPK(timesheetPK);
 		timesheet.setValide(false); //par defaut non valide
 		timesheetRepository.save(timesheet);
+		l.info("timesheet ajouté" );
 		
 	}
 
@@ -93,11 +97,14 @@ public class TimesheetServiceImpl implements ITimesheetService {
 
 	
 	public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
+		l.info("finding");
+
 		return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
 	}
 
 	
 	public List<Employe> getAllEmployeByMission(int missionId) {
+		l.info("finding employees.");
 		return timesheetRepository.getAllEmployeByMission(missionId);
 	}
 

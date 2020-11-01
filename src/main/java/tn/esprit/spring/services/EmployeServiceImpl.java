@@ -3,6 +3,7 @@ package tn.esprit.spring.services;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 
 	public void mettreAjourEmailByEmployeId(String email, int employeId) {
-		l.info("mettreAjourEmailByEmployeId loading...");
+		l.info("mettre a jour un employe ");
 		Employe employe = employeRepository.findById(employeId).get();
 		employe.setEmail(email);
 		employeRepository.save(employe);
@@ -143,11 +144,13 @@ public class EmployeServiceImpl implements IEmployeService {
 	/********************************Zohra In*******************************/
 	
 	public void deleteContratById(int contratId) {
-		
-		l.info("deleteContratById loading...");
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
+		Optional<Contrat> value = contratRepoistory.findById(contratId);
+
+		if (value.isPresent()) {
+			Contrat contratManagedEntity = value.get() ;
 		contratRepoistory.delete(contratManagedEntity);
 
+	}
 	}
 
 	public int getNombreEmployeJPQL() {

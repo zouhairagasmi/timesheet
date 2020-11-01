@@ -48,7 +48,7 @@ public class EmployeServiceImpl2Test {
 	@Autowired
 	EntrepriseRepository entrepriserepository;
 
-	@Test
+	/*@Test
 	public void testaddOrUpdateEmploye() {
 	int x = iemployeservice.getNombreEmployeJPQL() ;
 	Employe e = new Employe("oussema", "baccara", "oussema@gmail.com", "123456", true, Role.ADMINISTRATEUR);
@@ -56,5 +56,5 @@ public class EmployeServiceImpl2Test {
 	assertEquals(x+1, iemployeservice.getNombreEmployeJPQL());
 	}
 	//ok ok
-
+*/
 }
