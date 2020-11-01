@@ -5,11 +5,10 @@ import java.util.EnumSet;
 
 
 
+
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.DispatcherType;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.ocpsoft.rewrite.servlet.RewriteFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
