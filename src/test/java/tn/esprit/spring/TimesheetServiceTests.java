@@ -43,10 +43,10 @@ MissionRepository missrep;
 @Autowired
 DepartementRepository deprep;
 	
-	/*@Test 
+	@Test 
 	public void TestajouterMission() {
-		Mission a = new Mission("hello","youu");
+		Mission a = new Mission("hello2","youu2");
 		int id =service.ajouterMission(a);
-		assertEquals(5,id);
-	}*/
+		assertEquals(2,id);
+	}
 }
