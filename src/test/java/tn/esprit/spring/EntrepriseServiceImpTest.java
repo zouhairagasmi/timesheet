@@ -23,19 +23,19 @@ public class EntrepriseServiceImpTest {
 	@Autowired
 	DepartementRepository deptRepoistory;
 	
-	@Test
+	/*@Test
 	public void testAddEntrperise() {
 		
 			Entreprise a = new Entreprise (4,"monentreprise","fiscal");
 			ientrepriseservice.ajouterEntreprise(a);
 			
 			assert (entrepriseRepoistory.findById(a.getId())) != null;
-}
-	@Test
+}*/
+	/*@Test
 	public void  testajouterDepartement() {
 		Departement d=new Departement (4,"dep administration");
 		ientrepriseservice.ajouterDepartement(d);
 		assert ( deptRepoistory.findById(d.getId())) != null;
 		
-	}
+	}*/
 }
