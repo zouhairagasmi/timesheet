@@ -45,7 +45,7 @@ DepartementRepository deprep;
 	
 	@Test 
 	public void TestajouterMission() {
-		Mission a = new Mission("hello2","youu2");
+		Mission a = new Mission("hello3","youu3");
 		int id =service.ajouterMission(a);
 		assertEquals(2,id);
 	}

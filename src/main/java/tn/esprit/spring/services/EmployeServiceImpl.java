@@ -1,6 +1,7 @@
 package tn.esprit.spring.services;
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -52,9 +53,13 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public void mettreAjourEmailByEmployeId(String email, int employeId) {
 		l.info("mettre a jour un employe ");
-		Employe employe = employeRepository.findById(employeId).get();
-		employe.setEmail(email);
-		employeRepository.save(employe);
+		Optional<Employe> value = employeRepository.findById(employeId);
+
+		if (value.isPresent()) {
+			Employe employe = value.get();
+			employe.setEmail(email);
+			employeRepository.save(employe);
+		}
 
 	}
 
