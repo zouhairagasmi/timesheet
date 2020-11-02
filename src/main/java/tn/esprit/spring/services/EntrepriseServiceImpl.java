@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Entreprise;
@@ -73,8 +74,12 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	@Transactional
 	public void deleteEntrepriseById(int entrepriseId) {
-		entrepriseRepoistory.delete(entrepriseRepoistory.findById(entrepriseId).get());	
-		l.info("Entreprise supprimé avec succes..");
+		Optional<Entreprise> value = entrepriseRepoistory.findById(entrepriseId);
+		if (value.isPresent()) {
+			Entreprise entrepriseManagedEntity = value.get();
+		    entrepriseRepoistory.delete(entrepriseManagedEntity);
+		    l.info("Entreprise supprimé avec succes..");
+	}
 	}
 
 	@Transactional
