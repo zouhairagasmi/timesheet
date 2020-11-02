@@ -43,7 +43,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		Departement dep = deptRepoistory.findById(depId).get();
 		mission.setDepartement(dep);
 		missionRepository.save(mission);
-		System.out.println("c bonnnn");
+		l.info("c bonnnn");
 		
 	}
 
