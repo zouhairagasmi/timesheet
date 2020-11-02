@@ -56,6 +56,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				Departement depManagedEntity = deptRepoistory.findById(depId).get();
 				
 				depManagedEntity.setEntreprise(entrepriseManagedEntity);
+				//l.info("Departement affecté avec succes..");
 				deptRepoistory.save(depManagedEntity);
 		
 	}
@@ -73,6 +74,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	@Transactional
 	public void deleteEntrepriseById(int entrepriseId) {
 		entrepriseRepoistory.delete(entrepriseRepoistory.findById(entrepriseId).get());	
+		l.info("Entreprise supprimé avec succes..");
 	}
 
 	@Transactional

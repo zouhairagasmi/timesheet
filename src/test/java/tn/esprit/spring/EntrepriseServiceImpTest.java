@@ -1,5 +1,8 @@
 package tn.esprit.spring;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +40,14 @@ public class EntrepriseServiceImpTest {
 		ientrepriseservice.ajouterDepartement(d);
 		assert ( deptRepoistory.findById(d.getId())) != null;
 		
-	}
+	} 
+	/*@Test
+	public void testdeleteEntrepriseById() {
+	
+				Entreprise e= new Entreprise (10, "entreprise test","sa code fiscal");
+				ientrepriseservice.ajouterEntreprise(e);
+				ientrepriseservice.deleteEntrepriseById(e.getId());
+				assertNull (entrepriseRepoistory.findById(e.getId()));
+} */
 	
 }
