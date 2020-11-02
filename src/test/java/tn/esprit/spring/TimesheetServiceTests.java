@@ -44,9 +44,9 @@ MissionRepository missrep;
 DepartementRepository deprep;
 	
 	@Test 
-	public void TestajouterMission() {
-		Mission a = new Mission("hello3","youu3");
+	public void testajouterMission() {
+		Mission a = new Mission("hello5","youu5");
 		int id =service.ajouterMission(a);
-		assertEquals(2,id);
+		assertEquals(4,id);
 	}
 }
