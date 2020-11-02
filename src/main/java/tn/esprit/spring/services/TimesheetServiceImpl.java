@@ -43,7 +43,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		Departement dep = deptRepoistory.findById(depId).get();
 		mission.setDepartement(dep);
 		missionRepository.save(mission);
-		l.info("c bonnnn");
+		System.out.println("c bonnnn");
 		
 	}
 
@@ -58,18 +58,18 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		timesheet.setTimesheetPK(timesheetPK);
 		timesheet.setValide(false); //par defaut non valide
 		timesheetRepository.save(timesheet);
-		l.info("timesheet ajouté" );
+		System.out.println("timesheet ajouté" );
 		
 	}
 
 	
 	public void validerTimesheet(int missionId, int employeId, Date dateDebut, Date dateFin, int validateurId) {
-		l.info("In valider Timesheet");
+		System.out.println("In valider Timesheet");
 		Employe validateur = employeRepository.findById(validateurId).get();
 		Mission mission = missionRepository.findById(missionId).get();
 		//verifier s'il est un chef de departement (interet des enum)
 		if(!validateur.getRole().equals(Role.CHEF_DEPARTEMENT)){
-			l.info("l'employe doit etre chef de departement pour valider une feuille de temps !");
+			System.out.println("l'employe doit etre chef de departement pour valider une feuille de temps !");
 			return;
 		}
 		//verifier s'il est le chef de departement de la mission en question
@@ -81,7 +81,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 			}
 		}
 		if(!chefDeLaMission){
-			l.info("l'employe doit etre chef de departement de la mission en question");
+			System.out.println("l'employe doit etre chef de departement de la mission en question");
 			return;
 		}
 //
@@ -91,7 +91,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		
 		//Comment Lire une date de la base de données
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		l.info("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
+		System.out.println("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
 		
 	}
 

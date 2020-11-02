@@ -43,10 +43,25 @@ MissionRepository missrep;
 @Autowired
 DepartementRepository deprep;
 	
-	@Test 
+/*	@Test 
 	public void TestajouterMission() {
 		Mission a = new Mission("hello3","youu3");
 		int id =service.ajouterMission(a);
 		assertEquals(2,id);
+	}*/
+public static Date parseDate(String date) {
+    try {
+        return new SimpleDateFormat("yyyy-MM-dd").parse(date);
+    } catch (ParseException e) {
+        return null;
+    }
+ }
+	@Test
+	public void TestajouterTimesheet() {
+		Date dd = parseDate("2027-01-31");
+		Date df = parseDate("2028-02-01");
+	TimesheetPK o =new TimesheetPK(1, 1, dd, df);
+	 service.ajouterTimesheet(1, 1, dd, df);
+		 assertNull(rep.findBytimesheetPK(o));
 	}
 }
