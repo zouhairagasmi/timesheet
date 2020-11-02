@@ -117,7 +117,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		
 		
 		return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
-		l.info("ooooooooooooooooooooggggggggggggggggg");
+		
 	}
 
 	
