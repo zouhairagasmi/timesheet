@@ -47,7 +47,7 @@ List<Employe> e =service.getAllEmployeByMission(m.getId());
 assertNotNull(m);
 }*/
 	
-	@Test 
+/*	@Test 
 	public void TestajouterMission() {
 		Mission a = new Mission("hello","youu");
 		int id =service.ajouterMission(a);
