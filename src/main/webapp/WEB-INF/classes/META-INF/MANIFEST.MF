@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: timesheet
-Implementation-Version: 0.0.7-SNAPSHOT
+Implementation-Version: 0.0.6-SNAPSHOT
 Built-By: USER
 Implementation-Vendor-Id: tn.esprit.spring
 Build-Jdk: 1.8.0_60

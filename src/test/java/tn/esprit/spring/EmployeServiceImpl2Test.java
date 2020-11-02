@@ -2,6 +2,9 @@ package tn.esprit.spring;
 import static org.junit.Assert.assertNotNull;
 
 
+
+
+
 import static org.junit.Assert.assertNull;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,7 +57,19 @@ public class EmployeServiceImpl2Test {
 	Employe e = new Employe("oussema", "baccara", "oussema@gmail.com", "123456", true, Role.ADMINISTRATEUR);
 	iemployeservice.addOrUpdateEmploye(e);		
 	assertEquals(x+1, iemployeservice.getNombreEmployeJPQL());
-	}
-	//ok ok
-*/
+	}*/
+	
+	/*@Test
+	public void mettreAjourEmailByEmployeId() {
+		String y ="oussema2222@gmail.com";
+		iemployeservice.mettreAjourEmailByEmployeId(y, 10);
+		Employe employe =employerepository.findById(10).get();
+		String w = employe.getEmail();
+		assertEquals(y,w);
+	}*/
+	
+
 }
+	
+
+
