@@ -47,6 +47,6 @@ DepartementRepository deprep;
 	public void TestajouterMission() {
 		Mission a = new Mission("hello2","youu2");
 		int id =service.ajouterMission(a);
-		assertEquals(2,id);
+		assertEquals(1,id);
 	}
 }
