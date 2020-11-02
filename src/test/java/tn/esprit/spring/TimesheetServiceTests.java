@@ -40,6 +40,20 @@ MissionRepository missrep;
 @Autowired
 DepartementRepository deprep;
 
+@Test 
+public void TestfindAllMissionByEmployeJPQL() {
+	Employe e = employerepository.findById(1).get();
+	List<Mission> m =service.findAllMissionByEmployeJPQL(e.getId());
+	assertNotNull(m);
+}
+/*@Test 
+public void TestaffecterMissionADepartement() {
+	 Mission m =missrep.findById(1).get();
+	 int iddep =m.getDepartement().getId();
+service.affecterMissionADepartement(1,1);
+assertEquals(1,iddep);*/
+
+}
 /*@Test
 public void TestgetAllEmployeByMission(){
 	Mission m =missrep.findById(1).get();
@@ -71,4 +85,3 @@ assertNotNull(m);
 		 assertNull(rep.findBytimesheetPK(o));
 	}*/
 
-}

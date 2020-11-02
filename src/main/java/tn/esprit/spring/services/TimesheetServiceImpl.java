@@ -53,7 +53,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 			
 		missionRepository.save(mission.get());
 		
-		l.info("c bonnnn");
+		l.info("c bon");
 		}}
 		
 	}
@@ -79,7 +79,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		//Employe validateur = employeRepository.findById(validateurId).get();
 		Optional<Employe> validateur=employeRepository.findById(validateurId);
 		if (validateur.isPresent()) {
-			 Employe contratManagedEntity = validateur.get() ;}
+			 Employe contratManagedEntity = validateur.get() ;
 		
 		
 		//Mission mission = missionRepository.findById(missionId).get();
@@ -110,13 +110,14 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		l.info("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
 		
-	}
+	}}
 
 	
 	public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
-		l.info("finding");
-
+		
+		
 		return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
+		l.info("ooooooooooooooooooooggggggggggggggggg");
 	}
 
 	
