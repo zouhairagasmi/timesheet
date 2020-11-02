@@ -1,15 +1,21 @@
 package tn.esprit.spring;
 
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.TimesheetPK;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EmployeRepository;
@@ -32,6 +38,13 @@ EmployeRepository employerepository;
 MissionRepository missrep;
 @Autowired
 DepartementRepository deprep;
+
+@Test
+public void TestgetAllEmployeByMission(){
+	Mission m =missrep.findById(1).get();
+List<Employe> e =service.getAllEmployeByMission(m.getId());
+assertNotNull(m);
+}
 	/*
 	@Test 
 	public void TestajouterMission() {
