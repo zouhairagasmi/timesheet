@@ -3,6 +3,7 @@ package tn.esprit.spring.services;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,11 +40,22 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	}
     
 	public void affecterMissionADepartement(int missionId, int depId) {
-		Mission mission = missionRepository.findById(missionId).get();
+		Optional<Mission> mission = missionRepository.findById(missionId);
 		Departement dep = deptRepoistory.findById(depId).get();
-		mission.setDepartement(dep);
-		missionRepository.save(mission);
+		if(mission.isPresent()) {
+			l.info("Mission affectée");}
+		Optional<Departement>dept =deptRepoistory.findById(depId);
+		l.info("check it");
+		if(dept.isPresent())
+		{
+			l.info("Departement affecté");
+			mission.get().setDepartement(dept.get());		
+			l.info("save");
+			
+		missionRepository.save(mission.get());
+		
 		l.info("c bonnnn");
+		}
 		
 	}
 
@@ -58,7 +70,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		timesheet.setTimesheetPK(timesheetPK);
 		timesheet.setValide(false); //par defaut non valide
 		timesheetRepository.save(timesheet);
-		System.out.println("timesheet ajouté" );
+		l.info("timesheet ajouté" );
 		
 	}
 
@@ -69,7 +81,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		Mission mission = missionRepository.findById(missionId).get();
 		//verifier s'il est un chef de departement (interet des enum)
 		if(!validateur.getRole().equals(Role.CHEF_DEPARTEMENT)){
-			System.out.println("l'employe doit etre chef de departement pour valider une feuille de temps !");
+			l.info("l'employe doit etre chef de departement pour valider une feuille de temps !");
 			return;
 		}
 		//verifier s'il est le chef de departement de la mission en question
@@ -91,7 +103,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		
 		//Comment Lire une date de la base de données
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		System.out.println("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
+		l.info("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
 		
 	}
 
