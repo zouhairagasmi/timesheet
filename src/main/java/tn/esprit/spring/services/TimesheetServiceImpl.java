@@ -42,7 +42,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	public void affecterMissionADepartement(int missionId, int depId) {
 		Optional<Mission> mission = missionRepository.findById(missionId);
 		if(mission.isPresent()) {
-			l.info("Mission affectée");}
+			l.info("Mission affectée");
 		Optional<Departement>dept =deptRepoistory.findById(depId);
 		l.info("check it");
 		if(dept.isPresent())
@@ -54,7 +54,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		missionRepository.save(mission.get());
 		
 		l.info("c bonnnn");
-		}
+		}}
 		
 	}
 
