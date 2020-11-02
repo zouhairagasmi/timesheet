@@ -97,13 +97,13 @@ public class EmployeServiceImplTest {
 			}
 	*/
 	
-	/*@Test
+	@Test
 	public void getAllEmployes() {
 		
-				List<Employe> L = iemployeservice.getAllEmployes();
+				List<Employe> l = iemployeservice.getAllEmployes();
 				
-				assertEquals(6, L.size());
-			}*/
+				assertEquals(9, l.size());
+			}
 		
 	
 	/*
@@ -128,14 +128,14 @@ public class EmployeServiceImplTest {
 	*/
 	
 	
-	 /*public static Date parseDate(String date) {
+	 public static Date parseDate(String date) {
 	     try {
 	         return new SimpleDateFormat("yyyy-MM-dd").parse(date);
 	     } catch (ParseException e) {
 	         return null;
 	     }
 	  }
-	  
+	 
 	/*
 	 @Test
 		public void deleteAllContratJPQL() {
