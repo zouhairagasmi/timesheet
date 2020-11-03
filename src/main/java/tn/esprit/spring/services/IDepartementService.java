@@ -9,7 +9,7 @@ public interface IDepartementService {
 	
 	
 	public List<Departement> getAllDepartements();
-
+	public int ajouterDep(Departement departement);
 
 	
 	
