@@ -84,6 +84,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		
 		//Mission mission = missionRepository.findById(missionId).get();
 		Optional<Mission> mission=missionRepository.findById(missionId);
+		if (mission.isPresent()) {
 		//verifier s'il est un chef de departement (interet des enum)
 		if(!validateur.get().getRole().equals(Role.CHEF_DEPARTEMENT)){
 			l.info("l'employe doit etre chef de departement pour valider une feuille de temps !");
@@ -111,11 +112,11 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		l.info("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
 		
 	}}
-
+	}
 	
 	public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
 		
-		
+		l.info("oooooooooooooooooooo");
 		return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
 		
 	}
