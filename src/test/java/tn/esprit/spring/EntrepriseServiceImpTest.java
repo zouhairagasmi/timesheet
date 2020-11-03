@@ -26,12 +26,11 @@ public class EntrepriseServiceImpTest {
 	@Autowired
 	DepartementRepository deptRepoistory;
 	
-	@Test
+	/*@Test
 	public void testAddEntrperise() {
 		
 			Entreprise a = new Entreprise (5,"monentreprise","fiscal");
 			ientrepriseservice.ajouterEntreprise(a);
-			
 			assert (entrepriseRepoistory.findById(a.getId())) != null;
 }
 	@Test
@@ -40,22 +39,42 @@ public class EntrepriseServiceImpTest {
 		ientrepriseservice.ajouterDepartement(d);
 		assert ( deptRepoistory.findById(d.getId())) != null;
 		
-	} 
+	}
+	
 	@Test
 	public void testdeleteEntrepriseById() {
 	
-				Entreprise e= new Entreprise (2, "entreprise test","sa code fiscal");
-				ientrepriseservice.ajouterEntreprise(e);
-				ientrepriseservice.deleteEntrepriseById(e.getId());
+				ientrepriseservice.deleteEntrepriseById(3);
 				//assertNull(entrepriseRepoistory.findById(e.getId()));
 } 
 	@Test
 	public void testdeleteDepartementById() {
 	
-				Departement p= new Departement (1, "dep administration");
-				ientrepriseservice.ajouterDepartement(p);
-				ientrepriseservice.deleteDepartementById(p.getId());
+				
+				ientrepriseservice.deleteDepartementById(5);
 				//assertNull (entrepriseRepoistory.findById(p.getId()));
-} 
+}
+	@Test
+	public void testgetEntreprise() {
+	ientrepriseservice.getEntrepriseById(20);
+	
+		
+	}
+	
+	@Test
+	public void testgetDepartmentNamesByEntrprise() {
+		
+		ientrepriseservice.affecterDepartementAEntreprise(3,5);
+		ientrepriseservice.getAllDepartementsNamesByEntreprise(5);
+		
+		
+	}
+	*/
+	
+	@Test
+	public void testAffecteDepartment() {
+		ientrepriseservice.affecterDepartementAEntreprise(4, 5);
+		ientrepriseservice.getAllDepartementsNamesByEntreprise(5);
+	}
 	
 }

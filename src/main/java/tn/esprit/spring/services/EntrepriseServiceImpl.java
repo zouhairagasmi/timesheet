@@ -45,31 +45,39 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				//Rappel : la classe qui contient mappedBy represente le bout Slave
 				//Rappel : Dans une relation oneToMany le mappedBy doit etre du cote one.
 		
-		/*Optional<Departement> value = deptRepoistory.findById(depId);
-		Optional<Employe> valuee = employeRepository.findById(employeId);
+	Optional<Departement> value = deptRepoistory.findById(depId);
+	Optional<Entreprise> valuee = entrepriseRepoistory.findById(entrepriseId);
 		if (value.isPresent()) {
 			Departement depManagedEntity = value.get();
 		
-			if (valuee.isPresent()) {
-				Employe employeManagedEntity = valuee.get();
-				*/
-				Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
-				Departement depManagedEntity = deptRepoistory.findById(depId).get();
+		if (valuee.isPresent()) {
+				Entreprise entrepriseManagedEntity = valuee.get();
 				
-				depManagedEntity.setEntreprise(entrepriseManagedEntity);
-				//l.info("Departement affecté avec succes..");
-				deptRepoistory.save(depManagedEntity);
+		//Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+		//Departement depManagedEntity = deptRepoistory.findById(depId).get();
+				
+		depManagedEntity.setEntreprise(entrepriseManagedEntity);
+		l.info("Departement affecté avec succes..");
+	   deptRepoistory.save(depManagedEntity);
 		
 	}
+		}
+	}
+	
 	
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
 		List<String> depNames = new ArrayList<>();
+		Optional<Entreprise> value = entrepriseRepoistory.findById(entrepriseId);
+		if (value.isPresent()) {
+			Entreprise entrepriseManagedEntity = value.get();
 		for(Departement dep : entrepriseManagedEntity.getDepartements()){
 			depNames.add(dep.getName());
 		}
+			l.info("Deprtement name list.." + depNames.toString());	
+		}
 		
 		return depNames;
+	
 	}
 
 	@Transactional
@@ -78,8 +86,13 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		if (value.isPresent()) {
 			Entreprise entrepriseManagedEntity = value.get();
 		    entrepriseRepoistory.delete(entrepriseManagedEntity);
-		    l.info("Entreprise supprimé avec succes..");
+		    l.info("Entreprise supprimé avec succes.."+ entrepriseManagedEntity.getId());
 	}
+		else 
+		{
+			l.info("Entreprise non trouvée..");
+			
+		}
 	}
 
 	@Transactional
@@ -88,13 +101,29 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		if (value.isPresent()) {
 			Departement departementManagedEntity = value.get();
 			deptRepoistory.delete(departementManagedEntity);
-		    l.info("departement supprimé avec succes..");
+		    l.info("departement supprimé avec succes.."+departementManagedEntity.getId());
 		
 	}
+		else 
+		{
+			l.info("departement non trouvée..");
+			
+		}
 	}
 
 	public Entreprise getEntrepriseById(int entrepriseId) {
-		return entrepriseRepoistory.findById(entrepriseId).get();	
+		Optional<Entreprise> value = entrepriseRepoistory.findById(entrepriseId);
+		if (value.isPresent()) {
+			Entreprise entrepriseManagedEntity = value.get();
+		 l.info("Entreprise touvée...." + entrepriseManagedEntity.getName());
+		 								
 	}
-
+		else  {
+			l.info("Entreprise non touvée....");
+			}
+		
+		return	value.get();
+		 
+	}	
+	
 }
