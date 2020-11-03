@@ -2,6 +2,7 @@ package tn.esprit.spring.services;
 
 import java.util.ArrayList;
 
+
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +25,7 @@ import tn.esprit.spring.repository.TimesheetRepository;
 
 @Service
 public class EmployeServiceImpl implements IEmployeService {
-	
+
 	private static final Logger l = Logger.getLogger(EmployeServiceImpl.class);
 
 	@Autowired
@@ -41,8 +42,8 @@ public class EmployeServiceImpl implements IEmployeService {
 		l.info("authenticatation is loading...");
 		return employeRepository.findEmployeByEmailAndPassword(login, password);
 	}
-	
-	/********************************Oussema In**************************/
+
+	/******************************** Oussema In **************************/
 
 	@Override
 	public int addOrUpdateEmploye(Employe employe) {
@@ -50,7 +51,6 @@ public class EmployeServiceImpl implements IEmployeService {
 		employeRepository.save(employe);
 		return employe.getId();
 	}
-
 
 	public void mettreAjourEmailByEmployeId(String email, int employeId) {
 		try {
@@ -67,7 +67,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	}
 
-	@Transactional	
+	@Transactional
 	public void affecterEmployeADepartement(int employeId, int depId) {
 		try {
 		l.info("affecterEmployeADepartement loading...");
@@ -83,33 +83,50 @@ public class EmployeServiceImpl implements IEmployeService {
 				depManagedEntity.setEmployes(employes);
 			}else{
 
+<<<<<<< HEAD
 				depManagedEntity.getEmployes().add(employeManagedEntity);
 			}
+=======
+		if (depManagedEntity.getEmployes() == null) {
+>>>>>>> branch 'master' of https://github.com/zouhairagasmi/timesheet.git
 
+<<<<<<< HEAD
 			// à ajouter? 
 			deptRepoistory.save(depManagedEntity); 
 			
 		}}
 		catch (Exception e) { l.error("Erreur dans affecterEmployeADepartement() : " + e); }
+=======
+			List<Employe> employes = new ArrayList<>();
+			employes.add(employeManagedEntity);
+			depManagedEntity.setEmployes(employes);
+		} else {
+
+			depManagedEntity.getEmployes().add(employeManagedEntity);
+		}
+
+		// à ajouter?
+		deptRepoistory.save(depManagedEntity);
+>>>>>>> branch 'master' of https://github.com/zouhairagasmi/timesheet.git
 
 	}
+
 	@Transactional
-	public void desaffecterEmployeDuDepartement(int employeId, int depId)
-	{
+	public void desaffecterEmployeDuDepartement(int employeId, int depId) {
 		l.info("desaffecterEmployeDuDepartement loading...");
 
 		Departement dep = deptRepoistory.findById(depId).get();
 
 		int employeNb = dep.getEmployes().size();
-		for(int index = 0; index < employeNb; index++){
-			if(dep.getEmployes().get(index).getId() == employeId){
+		for (int index = 0; index < employeNb; index++) {
+			if (dep.getEmployes().get(index).getId() == employeId) {
 				dep.getEmployes().remove(index);
-				break;//a revoir
+				break;// a revoir
 			}
 		}
-	} 
-	
-	// Tablesapce (espace disque) 
+	}
+
+	// Tablesapce (espace disque)
 
 	public int ajouterContrat(Contrat contrat) {
 		l.info("add Contrat loading...");
@@ -140,40 +157,39 @@ public class EmployeServiceImpl implements IEmployeService {
 		else return null;
 		
 	}
-	 
-	public void deleteEmployeById(int employeId)
-	{
+
+	public void deleteEmployeById(int employeId) {
 		l.info("deleteEmployeById loading...");
 
 		Employe employe = employeRepository.findById(employeId).get();
 
-		//Desaffecter l'employe de tous les departements
-		//c'est le bout master qui permet de mettre a jour
-		//la table d'association
-		for(Departement dep : employe.getDepartements()){
+		// Desaffecter l'employe de tous les departements
+		// c'est le bout master qui permet de mettre a jour
+		// la table d'association
+		for (Departement dep : employe.getDepartements()) {
 			dep.getEmployes().remove(employe);
 		}
 
 		employeRepository.delete(employe);
 	}
-	
-	/********************************Oussema Out**************************/
-	
-	/********************************Zohra In*******************************/
-	
+
+	/******************************** Oussema Out **************************/
+
+	/******************************** Zohra In *******************************/
+
 	public void deleteContratById(int contratId) {
 		Optional<Contrat> value = contratRepoistory.findById(contratId);
 
 		if (value.isPresent()) {
-			Contrat contratManagedEntity = value.get() ;
-		contratRepoistory.delete(contratManagedEntity);
+			Contrat contratManagedEntity = value.get();
+			contratRepoistory.delete(contratManagedEntity);
 
-	}
+		}
 	}
 
 	public int getNombreEmployeJPQL() {
 		l.info("getNombreEmployeJPQL loading...");
-		l.info("il y a "+employeRepository.countemp()+" employes" );
+		l.info("il y a " + employeRepository.countemp() + " employes");
 		return employeRepository.countemp();
 	}
 
@@ -190,6 +206,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		employeRepository.mettreAjourEmailByEmployeIdJPQL(email, employeId);
 
 	}
+
 	public void deleteAllContratJPQL() {
 		employeRepository.deleteAllContratJPQL();
 	}
@@ -210,9 +227,9 @@ public class EmployeServiceImpl implements IEmployeService {
 	public List<Employe> getAllEmployes() {
 		l.info("Employe List: " + employeRepository.findAll());
 		return (List<Employe>) employeRepository.findAll();
-		
+
 	}
-	
-	/********************************Zohra Out*******************************/
+
+	/******************************** Zohra Out *******************************/
 
 }
