@@ -67,7 +67,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	}
 
-	@Transactional
+	@Transactional	
 	public void affecterEmployeADepartement(int employeId, int depId) {
 		try {
 		l.info("affecterEmployeADepartement loading...");
@@ -83,31 +83,14 @@ public class EmployeServiceImpl implements IEmployeService {
 				depManagedEntity.setEmployes(employes);
 			}else{
 
-<<<<<<< HEAD
 				depManagedEntity.getEmployes().add(employeManagedEntity);
 			}
-=======
-		if (depManagedEntity.getEmployes() == null) {
->>>>>>> branch 'master' of https://github.com/zouhairagasmi/timesheet.git
 
-<<<<<<< HEAD
 			// à ajouter? 
 			deptRepoistory.save(depManagedEntity); 
 			
 		}}
 		catch (Exception e) { l.error("Erreur dans affecterEmployeADepartement() : " + e); }
-=======
-			List<Employe> employes = new ArrayList<>();
-			employes.add(employeManagedEntity);
-			depManagedEntity.setEmployes(employes);
-		} else {
-
-			depManagedEntity.getEmployes().add(employeManagedEntity);
-		}
-
-		// à ajouter?
-		deptRepoistory.save(depManagedEntity);
->>>>>>> branch 'master' of https://github.com/zouhairagasmi/timesheet.git
 
 	}
 
