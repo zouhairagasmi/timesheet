@@ -79,18 +79,19 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		
 		Optional<Employe> validateur=employeRepository.findById(validateurId);
 		if (validateur.isPresent()) {
-			validateur.get() ;
-		}
+			 Employe contratManagedEntity =validateur.get() ;
+			
+		
 		Optional<Mission> mission=missionRepository.findById(missionId);
 		if (mission.isPresent()) {
 		//verifier s'il est un chef de departement (interet des enum)
-		if(!validateur.get().getRole().equals(Role.CHEF_DEPARTEMENT)){
+		if(!contratManagedEntity.getRole().equals(Role.CHEF_DEPARTEMENT)){
 			l.info("l'employe doit etre chef de departement pour valider une feuille de temps !");
 			return;
 		} 
 		//verifier s'il est le chef de departement de la mission en question
 		boolean chefDeLaMission = false;
-		for(Departement dep : validateur.get().getDepartements()){
+		for(Departement dep : contratManagedEntity.getDepartements()){
 			if(dep.getId() == mission.get().getDepartement().getId()){
 				chefDeLaMission = true;
 				break;
@@ -99,7 +100,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		if(!chefDeLaMission){
 			l.info("l'employe doit etre chef de departement de la mission en question");
 			return;
-		}}
+		}}}
 		TimesheetPK timesheetPK = new TimesheetPK(missionId, employeId, dateDebut, dateFin);
 		Timesheet timesheet =timesheetRepository.findBytimesheetPK(timesheetPK);
 		timesheet.setValide(true);
