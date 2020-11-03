@@ -97,16 +97,19 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Transactional
 	public void desaffecterEmployeDuDepartement(int employeId, int depId) {
 		l.info("desaffecterEmployeDuDepartement loading...");
-
-		Departement dep = deptRepoistory.findById(depId).get();
-
-		int employeNb = dep.getEmployes().size();
-		for (int index = 0; index < employeNb; index++) {
-			if (dep.getEmployes().get(index).getId() == employeId) {
-				dep.getEmployes().remove(index);
-				break;// a revoir
-			}
-		}
+		try {
+		Optional<Departement> value = deptRepoistory.findById(depId);
+		if(value.isPresent()) {
+			Departement dep=value.get();
+			int employeNb = dep.getEmployes().size();
+			for (int index = 0; index < employeNb; index++) {
+				if (dep.getEmployes().get(index).getId() == employeId) {
+					dep.getEmployes().remove(index);
+					break;// a revoir
+				}
+			}	
+		}}
+		catch (Exception e) { l.error("Erreur dans desaffecterEmployeDuDepartement() : " + e); }
 	}
 
 	// Tablesapce (espace disque)
