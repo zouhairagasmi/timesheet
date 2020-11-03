@@ -74,14 +74,15 @@ public class EmployeServiceImpl2Test {
 //		assertEquals(y,w);
 //
 //	}
-	@Test
+	/*@Test
 	public void affecterEmployeADepartement() {
 		iemployeservice.affecterEmployeADepartement(11, 1);
 		Employe e= employerepository.findById(10).get();
 		int idd =e.getDepartements().get(0).getId();
 		assertEquals(1, idd);
 		
-	}
+	}*/	
+	
 	}
 
 	
