@@ -79,7 +79,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		
 		Optional<Employe> validateur=employeRepository.findById(validateurId);
 		if (validateur.isPresent()) {
-			 Employe contratManagedEntity = validateur.get() ;
+			validateur.get() ;
 		}
 		Optional<Mission> mission=missionRepository.findById(missionId);
 		if (mission.isPresent()) {
