@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Entreprise;
@@ -17,6 +19,8 @@ import tn.esprit.spring.repository.EntrepriseRepository;
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
 
+	private static final Logger l = Logger.getLogger(EntrepriseServiceImpl.class);
+	
 	@Autowired
     EntrepriseRepository entrepriseRepoistory;
 	@Autowired
@@ -24,11 +28,13 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	
 	public int ajouterEntreprise(Entreprise entreprise) {
 		entrepriseRepoistory.save(entreprise);
+		l.info("Entreprise ajoutée...");
 		return entreprise.getId();
 	}
 
 	public int ajouterDepartement(Departement dep) {
 		deptRepoistory.save(dep);
+		l.info("Departement ajouté..");
 		return dep.getId();
 	}
 	
@@ -51,6 +57,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				Departement depManagedEntity = deptRepoistory.findById(depId).get();
 				
 				depManagedEntity.setEntreprise(entrepriseManagedEntity);
+				//l.info("Departement affecté avec succes..");
 				deptRepoistory.save(depManagedEntity);
 		
 	}
@@ -67,7 +74,12 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	@Transactional
 	public void deleteEntrepriseById(int entrepriseId) {
-		entrepriseRepoistory.delete(entrepriseRepoistory.findById(entrepriseId).get());	
+		Optional<Entreprise> value = entrepriseRepoistory.findById(entrepriseId);
+		if (value.isPresent()) {
+			Entreprise entrepriseManagedEntity = value.get();
+		    entrepriseRepoistory.delete(entrepriseManagedEntity);
+		    l.info("Entreprise supprimé avec succes..");
+	}
 	}
 
 	@Transactional
