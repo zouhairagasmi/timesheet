@@ -53,6 +53,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 
 	public void mettreAjourEmailByEmployeId(String email, int employeId) {
+		try {
 		l.info("mettre a jour un employe ");
 		Optional<Employe> value = employeRepository.findById(employeId);
 
@@ -61,28 +62,35 @@ public class EmployeServiceImpl implements IEmployeService {
 			employe.setEmail(email);
 			employeRepository.save(employe);
 		}
+		}
+		catch (Exception e) { l.error("Erreur dans mettreAjourEmailByEmployeId() : " + e); }
 
 	}
 
 	@Transactional	
 	public void affecterEmployeADepartement(int employeId, int depId) {
+		try {
 		l.info("affecterEmployeADepartement loading...");
+		Optional<Departement> value = deptRepoistory.findById(depId);
+		Optional<Employe> value1 = employeRepository.findById(employeId);
+		if(value.isPresent() && value1.isPresent() ) {
+			Departement depManagedEntity =value.get();
+			Employe employeManagedEntity =value1.get();
+			if(depManagedEntity.getEmployes() == null){
 
-		Departement depManagedEntity = deptRepoistory.findById(depId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
+				List<Employe> employes = new ArrayList<>();
+				employes.add(employeManagedEntity);
+				depManagedEntity.setEmployes(employes);
+			}else{
 
-		if(depManagedEntity.getEmployes() == null){
+				depManagedEntity.getEmployes().add(employeManagedEntity);
+			}
 
-			List<Employe> employes = new ArrayList<>();
-			employes.add(employeManagedEntity);
-			depManagedEntity.setEmployes(employes);
-		}else{
-
-			depManagedEntity.getEmployes().add(employeManagedEntity);
-		}
-
-		// à ajouter? 
-		deptRepoistory.save(depManagedEntity); 
+			// à ajouter? 
+			deptRepoistory.save(depManagedEntity); 
+			
+		}}
+		catch (Exception e) { l.error("Erreur dans affecterEmployeADepartement() : " + e); }
 
 	}
 	@Transactional
@@ -122,10 +130,15 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public String getEmployePrenomById(int employeId) {
-		l.info("getEmployePrenomById loading...");
 
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
-		return employeManagedEntity.getPrenom();
+		l.info("getEmployePrenomById loading...");
+		Optional<Employe> value = employeRepository.findById(employeId);
+		Employe value1 = value.get();
+		if(value.isPresent()) {
+		return value1.getPrenom();
+		}
+		else return null;
+		
 	}
 	 
 	public void deleteEmployeById(int employeId)
