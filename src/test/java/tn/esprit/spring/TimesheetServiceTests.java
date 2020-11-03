@@ -50,7 +50,7 @@ public void TestvaliderTimesheet() {
 	Date df = parseDate("2020-11-04");
 	service.validerTimesheet(1,1,dd,df,0);
 	TimesheetPK p =new TimesheetPK(1, 1, dd, df);
-	assertNull(rep.findBytimesheetPK(p));
+	assertNotNull(rep.findBytimesheetPK(p));
 	//Timesheet pp= new Timesheet(true);
 	
 	//assertNull(rep.findById(a.getId()));
