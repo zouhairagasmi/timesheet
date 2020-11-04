@@ -112,7 +112,7 @@ public class EmployeServiceImpl2Test {
 		int ide =c.getEmploye().getId();
 		assertEquals(2, ide);
 		
-	}	
+	}	*/
 	
 	@Test
 	public void getEmployePrenomById() {
@@ -121,7 +121,7 @@ public class EmployeServiceImpl2Test {
 		
 	}
 	
-	
+	/*
 	@Test
 	public void deleteEmployeById() {
 		int x = iemployeservice.getNombreEmployeJPQL() ;
