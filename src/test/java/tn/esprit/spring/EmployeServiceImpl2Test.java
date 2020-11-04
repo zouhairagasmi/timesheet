@@ -114,6 +114,12 @@ public class EmployeServiceImpl2Test {
 //		
 //	}	
 	
+	@Test
+	public void getEmployePrenomById() {
+		String pre = iemployeservice.getEmployePrenomById(1);
+		assertEquals("gasmi", pre);
+		
+	}
 	}
 
 	
