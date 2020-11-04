@@ -63,6 +63,7 @@ public class EmployeServiceImpl2Test {
 	@Autowired
 	EntrepriseRepository entrepriserepository;
 
+
 	@Test
 	public void testaddOrUpdateEmploye() {
 	int x = iemployeservice.getNombreEmployeJPQL() ;
@@ -86,7 +87,6 @@ public class EmployeServiceImpl2Test {
 		Employe e= employerepository.findById(11).get();
 		int idd =e.getDepartements().get(0).getId();
 		assertEquals(1, idd);
-		
 	}
 	@Test
 	public void testdesaffecterEmployeDuDepartement() {
@@ -130,6 +130,9 @@ public class EmployeServiceImpl2Test {
 		
 	}
 	}
+	
+
+	
 
 	
 

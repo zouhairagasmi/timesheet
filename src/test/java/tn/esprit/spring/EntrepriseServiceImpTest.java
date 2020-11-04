@@ -1,11 +1,9 @@
 package tn.esprit.spring;
 
-
-
-
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.Test;
+
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,12 +26,11 @@ public class EntrepriseServiceImpTest {
 	@Autowired
 	DepartementRepository deptRepoistory;
 	
-	@Test
+	/*@Test
 	public void testAddEntrperise() {
 		
 			Entreprise a = new Entreprise (5,"monentreprise","fiscal");
 			ientrepriseservice.ajouterEntreprise(a);
-			
 			assert (entrepriseRepoistory.findById(a.getId())) != null;
 }
 	@Test
@@ -42,14 +39,42 @@ public class EntrepriseServiceImpTest {
 		ientrepriseservice.ajouterDepartement(d);
 		assert ( deptRepoistory.findById(d.getId())) != null;
 		
-	} 
+	}
+	
 	@Test
 	public void testdeleteEntrepriseById() {
 	
-				Entreprise e= new Entreprise (10, "entreprise test","sa code fiscal");
-				ientrepriseservice.ajouterEntreprise(e);
-				ientrepriseservice.deleteEntrepriseById(e.getId());
-				assertNull (entrepriseRepoistory.findById(e.getId()));
+				ientrepriseservice.deleteEntrepriseById(3);
+				//assertNull(entrepriseRepoistory.findById(e.getId()));
 } 
+	@Test
+	public void testdeleteDepartementById() {
+	
+				
+				ientrepriseservice.deleteDepartementById(5);
+				//assertNull (entrepriseRepoistory.findById(p.getId()));
+}
+	@Test
+	public void testgetEntreprise() {
+	ientrepriseservice.getEntrepriseById(20);
+	
+		
+	}
+	
+	@Test
+	public void testgetDepartmentNamesByEntrprise() {
+		
+		ientrepriseservice.affecterDepartementAEntreprise(3,5);
+		ientrepriseservice.getAllDepartementsNamesByEntreprise(5);
+		
+		
+	}
+	*/
+	
+	@Test
+	public void testAffecteDepartment() {
+		ientrepriseservice.affecterDepartementAEntreprise(4, 5);
+		ientrepriseservice.getAllDepartementsNamesByEntreprise(5);
+	}
 	
 }

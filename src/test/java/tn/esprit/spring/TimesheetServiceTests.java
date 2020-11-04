@@ -40,20 +40,34 @@ MissionRepository missrep;
 @Autowired
 DepartementRepository deprep;
 
+
+
+
+@Test 
+public void TestvaliderTimesheet() {
+	
+	Date dd = parseDate("2020-11-02");
+	Date df = parseDate("2020-11-04");
+	service.validerTimesheet(1,1,dd,df,0);
+	TimesheetPK p =new TimesheetPK(1, 1, dd, df);
+	assertNotNull(rep.findBytimesheetPK(p));
+	//Timesheet pp= new Timesheet(true);
+	
+	//assertNull(rep.findById(a.getId()));
+}
+
+
+/*
+
 @Test 
 public void TestfindAllMissionByEmployeJPQL() {
 	Employe e = employerepository.findById(1).get();
 	List<Mission> m =service.findAllMissionByEmployeJPQL(e.getId());
 	assertNotNull(m);
-}
-/*@Test 
-public void TestaffecterMissionADepartement() {
-	 Mission m =missrep.findById(1).get();
-	 int iddep =m.getDepartement().getId();
-service.affecterMissionADepartement(1,1);
-assertEquals(1,iddep);*/
+}*/
 
-}
+
+/////////////////TEST/////////////////////
 /*@Test
 public void TestgetAllEmployeByMission(){
 	Mission m =missrep.findById(1).get();
@@ -61,13 +75,28 @@ List<Employe> e =service.getAllEmployeByMission(m.getId());
 assertNotNull(m);
 }*/
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*	@Test 
 	public void TestajouterMission() {
 		Mission a = new Mission("hello","youu");
 		int id =service.ajouterMission(a);
 		assertEquals(3,id);
 	}
-	/*
+*/
 
 	public static Date parseDate(String date) {
 	     try {
@@ -75,7 +104,7 @@ assertNotNull(m);
 	     } catch (ParseException e) {
 	         return null;
 	     }
-	  }
+	}}
 	/*@Test
 	public void TestajouterTimesheet() {
 		Date dd = parseDate("3020-01-05");
@@ -85,3 +114,12 @@ assertNotNull(m);
 		 assertNull(rep.findBytimesheetPK(o));
 	}*/
 
+/*@Test 
+public void TestaffecterMissionADepartement() {
+service.affecterMissionADepartement(1,1);
+ Mission m =missrep.findById(1).get();
+ int iddep =m.getDepartement().getId();
+
+assertEquals(1,iddep);
+
+}*/
