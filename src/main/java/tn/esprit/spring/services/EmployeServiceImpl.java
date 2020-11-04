@@ -123,12 +123,16 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public void affecterContratAEmploye(int contratId, int employeId) {
 		l.info("affecterContratAEmploye loading...");
-		
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
-
-		contratManagedEntity.setEmploye(employeManagedEntity);
-		contratRepoistory.save(contratManagedEntity);
+		try {
+		Optional<Contrat> value = contratRepoistory.findById(contratId);
+		Optional<Employe> value1 = employeRepository.findById(employeId);
+		if(value.isPresent() && value1.isPresent() ) {
+			Contrat contratManagedEntity =value.get();
+			Employe employeManagedEntity =value1.get();	
+			contratManagedEntity.setEmploye(employeManagedEntity);
+			contratRepoistory.save(contratManagedEntity);
+		}}
+		catch (Exception e) { l.error("Erreur dans affecterContratAEmploye() : " + e); }
 
 	}
 
