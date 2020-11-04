@@ -64,7 +64,7 @@ public class EmployeServiceImpl2Test {
 	EntrepriseRepository entrepriserepository;
 
 
-	@Test
+/*	@Test
 	public void testaddOrUpdateEmploye() {
 	int x = iemployeservice.getNombreEmployeJPQL() ;
 	Employe e = new Employe("oussema", "baccara", "oussema@gmail.com", "123456", true, Role.ADMINISTRATEUR);
@@ -132,7 +132,7 @@ public class EmployeServiceImpl2Test {
 	}
 	
 
-	
+	*/
 
 	
 
