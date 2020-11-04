@@ -140,8 +140,9 @@ public class EmployeServiceImpl implements IEmployeService {
 
 		l.info("getEmployePrenomById loading...");
 		Optional<Employe> value = employeRepository.findById(employeId);
-		Employe value1 = value.get();
+		
 		if(value.isPresent()) {
+			Employe value1 = value.get();
 		return value1.getPrenom();
 		}
 		else return null;
