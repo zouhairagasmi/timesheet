@@ -6,14 +6,15 @@ import static org.junit.Assert.assertNotNull;
 
 
 
+
 import static org.junit.Assert.assertNull;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+
+
+
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import tn.esprit.spring.entities.Contrat;
-import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
-import tn.esprit.spring.entities.Entreprise;
-import tn.esprit.spring.entities.Mission;
+
 import tn.esprit.spring.entities.Role;
-import tn.esprit.spring.entities.Timesheet;
+
 import tn.esprit.spring.repository.ContratRepository;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EmployeRepository;
@@ -91,7 +90,7 @@ public class EmployeServiceImpl2Test {
 	@Test
 	public void testdesaffecterEmployeDuDepartement() {
 		iemployeservice.desaffecterEmployeDuDepartement(11,1);
-		Departement d = deptRepoistory.findById(1).get();
+	
 		Employe e = employerepository.findById(11).get();
 		String a =e.getDepartements().toString();
 				assertEquals("[]", a);
