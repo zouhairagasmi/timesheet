@@ -69,12 +69,12 @@ public class EntrepriseServiceImpTest {
 		
 		
 	}
-	*/
+	
 	
 	@Test
 	public void testAffecteDepartment() {
 		ientrepriseservice.affecterDepartementAEntreprise(4, 5);
 		ientrepriseservice.getAllDepartementsNamesByEntreprise(5);
-	}
+	} */
 	
 }
