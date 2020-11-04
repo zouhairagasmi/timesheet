@@ -95,6 +95,16 @@ public class Employe implements Serializable {
 		this.role = role;
 	}
 	
+	
+	
+	public Employe(int id, String prenom, String nom) {
+		super();
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+	}
+
+
 	public int getId() {
 		return id;
 	}

@@ -10,11 +10,7 @@ import javax.persistence.OneToMany;
 import tn.esprit.spring.entities.Departement;
 
 
-
 public class EntrepriseDTO{
-	
-
-	
 	
 	private String name;
 	
