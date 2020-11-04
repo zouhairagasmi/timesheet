@@ -98,13 +98,22 @@ public class EmployeServiceImpl2Test {
 //				
 //			}
 	
+//	@Test
+//	public void ajouterContrat() {
+//	int x = icontratservice.getNombreContratJPQL() ;
+//	Contrat c = new Contrat(2,"cdd",1);
+//	iemployeservice.ajouterContrat(c);		
+//	assertEquals(x+1, icontratservice.getNombreContratJPQL());
+//	}
 	@Test
-	public void ajouterContrat() {
-	int x = icontratservice.getNombreContratJPQL() ;
-	Contrat c = new Contrat(1,"cdd",1);
-	iemployeservice.ajouterContrat(c);		
-	assertEquals(x+1, icontratservice.getNombreContratJPQL());
-	}
+	public void affecterContratAEmploye() {
+		iemployeservice.affecterContratAEmploye(1, 2);
+		Contrat c = contratrepository.findById(1).get();
+		int ide =c.getEmploye().getId();
+		assertEquals(2, ide);
+		
+	}	
+	
 	}
 
 	

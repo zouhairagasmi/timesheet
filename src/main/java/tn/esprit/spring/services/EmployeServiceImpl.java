@@ -123,7 +123,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public void affecterContratAEmploye(int contratId, int employeId) {
 		l.info("affecterContratAEmploye loading...");
-
+		
 		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
 		Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
