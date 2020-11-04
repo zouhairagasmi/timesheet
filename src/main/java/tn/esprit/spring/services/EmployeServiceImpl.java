@@ -150,17 +150,15 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public void deleteEmployeById(int employeId) {
 		l.info("deleteEmployeById loading...");
-
-		Employe employe = employeRepository.findById(employeId).get();
-
-		// Desaffecter l'employe de tous les departements
-		// c'est le bout master qui permet de mettre a jour
-		// la table d'association
+		Optional<Employe> value = employeRepository.findById(employeId);
+		if(value.isPresent()) {
+			Employe employe =value.get();	
 		for (Departement dep : employe.getDepartements()) {
 			dep.getEmployes().remove(employe);
 		}
 
 		employeRepository.delete(employe);
+		}
 	}
 
 	/******************************** Oussema Out **************************/

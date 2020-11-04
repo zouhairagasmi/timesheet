@@ -114,12 +114,21 @@ public class EmployeServiceImpl2Test {
 //		
 //	}	
 	
-	@Test
-	public void getEmployePrenomById() {
-		String pre = iemployeservice.getEmployePrenomById(1);
-		assertEquals("gasmi", pre);
-		
-	}
+//	@Test
+//	public void getEmployePrenomById() {
+//		String pre = iemployeservice.getEmployePrenomById(1);
+//		assertEquals("gasmi", pre);
+//		
+//	}
+	
+	
+//	@Test
+//	public void deleteEmployeById() {
+//		int x = iemployeservice.getNombreEmployeJPQL() ;
+//		iemployeservice.deleteEmployeById(3);		
+//		assertEquals(x-1, iemployeservice.getNombreEmployeJPQL());
+//		
+//	}
 	}
 
 	
