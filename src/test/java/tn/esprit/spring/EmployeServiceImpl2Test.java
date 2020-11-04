@@ -101,10 +101,9 @@ public class EmployeServiceImpl2Test {
 	@Test
 	public void ajouterContrat() {
 	int x = icontratservice.getNombreContratJPQL() ;
-	System.out.println(x);
-//	Employe e = new Employe("oussema", "baccara", "oussema@gmail.com", "123456", true, Role.ADMINISTRATEUR);
-//	iemployeservice.addOrUpdateEmploye(e);		
-//	assertEquals(x+1, iemployeservice.getNombreEmployeJPQL());
+	Employe e = new Employe("oussema", "baccara", "oussema@gmail.com", "123456", true, Role.ADMINISTRATEUR);
+	iemployeservice.addOrUpdateEmploye(e);		
+	assertEquals(x+1, iemployeservice.getNombreEmployeJPQL());
 	}
 	}
 
