@@ -9,7 +9,7 @@ public interface IContratService {
 	
 	
 	public List<Contrat> getAllContrats();
-
+	public int getNombreContratJPQL();
 
 	
 	

@@ -97,16 +97,19 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Transactional
 	public void desaffecterEmployeDuDepartement(int employeId, int depId) {
 		l.info("desaffecterEmployeDuDepartement loading...");
-
-		Departement dep = deptRepoistory.findById(depId).get();
-
-		int employeNb = dep.getEmployes().size();
-		for (int index = 0; index < employeNb; index++) {
-			if (dep.getEmployes().get(index).getId() == employeId) {
-				dep.getEmployes().remove(index);
-				break;// a revoir
-			}
-		}
+		try {
+		Optional<Departement> value = deptRepoistory.findById(depId);
+		if(value.isPresent()) {
+			Departement dep=value.get();
+			int employeNb = dep.getEmployes().size();
+			for (int index = 0; index < employeNb; index++) {
+				if (dep.getEmployes().get(index).getId() == employeId) {
+					dep.getEmployes().remove(index);
+					break;// a revoir
+				}
+			}	
+		}}
+		catch (Exception e) { l.error("Erreur dans desaffecterEmployeDuDepartement() : " + e); }
 	}
 
 	// Tablesapce (espace disque)
@@ -120,12 +123,16 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public void affecterContratAEmploye(int contratId, int employeId) {
 		l.info("affecterContratAEmploye loading...");
-
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
-
-		contratManagedEntity.setEmploye(employeManagedEntity);
-		contratRepoistory.save(contratManagedEntity);
+		try {
+		Optional<Contrat> value = contratRepoistory.findById(contratId);
+		Optional<Employe> value1 = employeRepository.findById(employeId);
+		if(value.isPresent() && value1.isPresent() ) {
+			Contrat contratManagedEntity =value.get();
+			Employe employeManagedEntity =value1.get();	
+			contratManagedEntity.setEmploye(employeManagedEntity);
+			contratRepoistory.save(contratManagedEntity);
+		}}
+		catch (Exception e) { l.error("Erreur dans affecterContratAEmploye() : " + e); }
 
 	}
 
@@ -143,17 +150,15 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public void deleteEmployeById(int employeId) {
 		l.info("deleteEmployeById loading...");
-
-		Employe employe = employeRepository.findById(employeId).get();
-
-		// Desaffecter l'employe de tous les departements
-		// c'est le bout master qui permet de mettre a jour
-		// la table d'association
+		Optional<Employe> value = employeRepository.findById(employeId);
+		if(value.isPresent()) {
+			Employe employe =value.get();	
 		for (Departement dep : employe.getDepartements()) {
 			dep.getEmployes().remove(employe);
 		}
 
 		employeRepository.delete(employe);
+		}
 	}
 
 	/******************************** Oussema Out **************************/
