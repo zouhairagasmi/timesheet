@@ -96,7 +96,7 @@ assertNotNull(m);
 		Mission a = new Mission("la vita ","youu");
 		int id =service.ajouterMission(a);
 		assertEquals(3,id);
-	}*/
+	}
 
 
 	public static Date parseDate(String date) {
@@ -124,3 +124,4 @@ service.affecterMissionADepartement(1,1);
 assertEquals(1,iddep);
 
 }*/
+}

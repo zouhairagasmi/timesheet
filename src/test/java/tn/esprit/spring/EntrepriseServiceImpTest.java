@@ -29,10 +29,11 @@ public class EntrepriseServiceImpTest {
 	/*@Test
 	public void testAddEntrperise() {
 		
-			Entreprise a = new Entreprise (5,"monentreprise","fiscal");
+			Entreprise a = new Entreprise (16,"monentreprise","fiscal");
 			ientrepriseservice.ajouterEntreprise(a);
 			assert (entrepriseRepoistory.findById(a.getId())) != null;
 }
+	
 	@Test
 	public void  testajouterDepartement() {
 		Departement d=new Departement (6,"dep administration");
@@ -51,16 +52,17 @@ public class EntrepriseServiceImpTest {
 	public void testdeleteDepartementById() {
 	
 				
-				ientrepriseservice.deleteDepartementById(5);
+				ientrepriseservice.deleteDepartementById(20);
 				//assertNull (entrepriseRepoistory.findById(p.getId()));
-}*/
+}
+	/*
 	@Test
 	public void testgetEntreprise() {
 	ientrepriseservice.getEntrepriseById(20);
 	
 		
 	}
-	/*
+	
 	@Test
 	public void testgetDepartmentNamesByEntrprise() {
 		
@@ -69,7 +71,7 @@ public class EntrepriseServiceImpTest {
 		
 		
 	}
-	
+	/*
 	
 	@Test
 	public void testAffecteDepartment() {
