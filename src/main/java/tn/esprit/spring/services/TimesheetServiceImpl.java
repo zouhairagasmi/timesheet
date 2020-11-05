@@ -125,7 +125,6 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	////DONE
 	public List<Employe> getAllEmployeByMission(int missionId) {
 		l.info("Employees whose their mission id="+missionId +timesheetRepository.getAllEmployeByMission(missionId) );
-		//l.info(timesheetRepository.getAllEmployeByMission(missionId));
 		return timesheetRepository.getAllEmployeByMission(missionId);
 	}
 
