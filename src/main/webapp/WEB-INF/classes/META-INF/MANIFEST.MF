@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: timesheet
-Implementation-Version: 1.2.11-SNAPSHOT
+Implementation-Version: 1.2.12-SNAPSHOT
 Built-By: emna
 Implementation-Vendor-Id: tn.esprit.spring
 Build-Jdk: 1.8.0_181
