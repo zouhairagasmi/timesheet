@@ -63,7 +63,7 @@ public class EmployeServiceImpl2Test {
 	EntrepriseRepository entrepriserepository;
 
 
-/*	@Test
+	@Test
 	public void testaddOrUpdateEmploye() {
 	int x = iemployeservice.getNombreEmployeJPQL() ;
 	Employe e = new Employe("oussema", "baccara", "oussema@gmail.com", "123456", true, Role.ADMINISTRATEUR);
@@ -100,18 +100,18 @@ public class EmployeServiceImpl2Test {
 	@Test
 	public void ajouterContrat() {
 	int x = icontratservice.getNombreContratJPQL() ;
-	Contrat c = new Contrat(2,"cdd",1);
+	Contrat c = new Contrat(3,"cdi",1);
 	iemployeservice.ajouterContrat(c);		
 	assertEquals(x+1, icontratservice.getNombreContratJPQL());
 	}
 	@Test
 	public void affecterContratAEmploye() {
-		iemployeservice.affecterContratAEmploye(2, 2);
-		Contrat c = contratrepository.findById(2).get();
+		iemployeservice.affecterContratAEmploye(3, 2);
+		Contrat c = contratrepository.findById(3).get();
 		int ide =c.getEmploye().getId();
 		assertEquals(2, ide);
 		
-	}	*/
+	}	
 	
 	@Test
 	public void getEmployePrenomById() {
@@ -120,7 +120,7 @@ public class EmployeServiceImpl2Test {
 		
 	}
 	
-	/*
+	
 	@Test
 	public void deleteEmployeById() {
 		int x = iemployeservice.getNombreEmployeJPQL() ;
@@ -129,7 +129,7 @@ public class EmployeServiceImpl2Test {
 		
 	}
 	
-	*/
+	
 	}
 	
 

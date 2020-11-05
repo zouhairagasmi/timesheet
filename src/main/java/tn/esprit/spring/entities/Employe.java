@@ -96,8 +96,7 @@ public class Employe implements Serializable {
 	}
 	
 	
-<<<<<<< HEAD
-=======
+
 	
 	public Employe(int id, String prenom, String nom) {
 		super();
@@ -105,7 +104,7 @@ public class Employe implements Serializable {
 		this.prenom = prenom;
 		this.nom = nom;
 	}
->>>>>>> branch 'master' of https://github.com/zouhairagasmi/timesheet.git
+
 
 
 	public int getId() {
