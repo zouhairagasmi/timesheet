@@ -63,7 +63,7 @@ public class EmployeServiceImpl2Test {
 	EntrepriseRepository entrepriserepository;
 
 
-	@Test
+/*	@Test
 	public void testaddOrUpdateEmploye() {
 	int x = iemployeservice.getNombreEmployeJPQL() ;
 	Employe e = new Employe("oussema", "baccara", "oussema@gmail.com", "123456", true, Role.ADMINISTRATEUR);
@@ -111,7 +111,7 @@ public class EmployeServiceImpl2Test {
 		int ide =c.getEmploye().getId();
 		assertEquals(2, ide);
 		
-	}	
+	}	*/
 	
 	@Test
 	public void getEmployePrenomById() {
@@ -120,7 +120,7 @@ public class EmployeServiceImpl2Test {
 		
 	}
 	
-	
+	/*
 	@Test
 	public void deleteEmployeById() {
 		int x = iemployeservice.getNombreEmployeJPQL() ;
@@ -128,10 +128,11 @@ public class EmployeServiceImpl2Test {
 		assertEquals(x-1, iemployeservice.getNombreEmployeJPQL());
 		
 	}
+	
+	*/
 	}
 	
 
-	
 
 	
 

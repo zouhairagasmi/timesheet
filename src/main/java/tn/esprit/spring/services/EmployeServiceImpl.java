@@ -137,8 +137,8 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public String getEmployePrenomById(int employeId) {
-
 		l.info("getEmployePrenomById loading...");
+<<<<<<< HEAD
 		Optional<Employe> value = employeRepository.findById(employeId);
 		
 		if(value.isPresent()) {
@@ -146,7 +146,17 @@ public class EmployeServiceImpl implements IEmployeService {
 		return value1.getPrenom();
 		}
 		else return null;
+=======
+>>>>>>> branch 'master' of https://github.com/zouhairagasmi/timesheet.git
 		
+		Optional<Employe> value = employeRepository.findById(employeId);
+		Employe employeManagedEntity = new Employe();
+		if (value.isPresent()) {
+			employeManagedEntity = value.get();
+			
+
+		}
+		return employeManagedEntity.getPrenom();
 	}
 
 	public void deleteEmployeById(int employeId) {
@@ -167,53 +177,77 @@ public class EmployeServiceImpl implements IEmployeService {
 	/******************************** Zohra In *******************************/
 
 	public void deleteContratById(int contratId) {
+		l.info("Exécution de la méthode delete contrat");
+		l.debug("Suppression d'un contrat");
 		Optional<Contrat> value = contratRepoistory.findById(contratId);
 
 		if (value.isPresent()) {
 			Contrat contratManagedEntity = value.get();
 			contratRepoistory.delete(contratManagedEntity);
+			l.debug("Fin de Suppression d'un contrat");
+			l.info("Fin de l'exécution de la méthode delete contrat avec id ="+ contratId);
+			
 
 		}
 	}
 
 	public int getNombreEmployeJPQL() {
-		l.info("getNombreEmployeJPQL loading...");
+		l.info("Exécution de la méthode getNombreEmployeJPQL");
+		l.debug("Retourner le nombre des employees : ");
 		l.info("il y a " + employeRepository.countemp() + " employes");
 		return employeRepository.countemp();
 	}
 
 	public List<String> getAllEmployeNamesJPQL() {
+		l.info("Exécution de la méthode getAllEmployeNamesJPQL");
+		l.debug("Retourner les noms des employees : ");
 		return employeRepository.employeNames();
 
 	}
 
 	public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise) {
+		l.info("Exécution de la méthode getAllEmployeByEntreprise");
+		l.debug("Retourner la liste des employees d'une entreprise : ");
 		return employeRepository.getAllEmployeByEntreprisec(entreprise);
 	}
 
 	public void mettreAjourEmailByEmployeIdJPQL(String email, int employeId) {
+		l.info("Exécution de la méthode mettreAjourEmailByEmployeIdJPQL");
+		l.debug("mise a jour de l'email ");
+		l.info("le nouveau email de l'employee : "+employeId+"est: "+email);
 		employeRepository.mettreAjourEmailByEmployeIdJPQL(email, employeId);
 
 	}
 
 	public void deleteAllContratJPQL() {
+		l.info("Exécution de la méthode delete tous contrats");
+		l.debug("Suppression des contrats");
 		employeRepository.deleteAllContratJPQL();
 	}
 
 	public float getSalaireByEmployeIdJPQL(int employeId) {
+		l.info("Exécution de la méthode getSalaireByEmployeIdJPQL");
+		l.debug("Retourner la salaire d'un employee : ");
+		l.info("la salaire de l'employee : "+employeId+"est: ");
 		return employeRepository.getSalaireByEmployeIdJPQL(employeId);
 	}
 
 	public Double getSalaireMoyenByDepartementId(int departementId) {
+		l.info("Exécution de la méthode getSalaireMoyenByDepartementId");
+		l.debug("Retourner la salaise moyenne de departement : ");
 		return employeRepository.getSalaireMoyenByDepartementId(departementId);
 	}
 
 	public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut,
 			Date dateFin) {
+		l.info("Exécution de la méthode getTimesheetsByMissionAndDate");
+		l.debug("Retourner la timesheet : ");
 		return timesheetRepository.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
 	}
 
 	public List<Employe> getAllEmployes() {
+		l.info("Exécution de la méthode getAllEmployeByEntreprise");
+		l.debug("Retourner la liste des employees d'une entreprise : ");
 		l.info("Employe List: " + employeRepository.findAll());
 		return (List<Employe>) employeRepository.findAll();
 

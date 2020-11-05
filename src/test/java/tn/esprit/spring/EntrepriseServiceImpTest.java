@@ -53,14 +53,14 @@ public class EntrepriseServiceImpTest {
 				
 				ientrepriseservice.deleteDepartementById(5);
 				//assertNull (entrepriseRepoistory.findById(p.getId()));
-}
+}*/
 	@Test
 	public void testgetEntreprise() {
 	ientrepriseservice.getEntrepriseById(20);
 	
 		
 	}
-	
+	/*
 	@Test
 	public void testgetDepartmentNamesByEntrprise() {
 		
@@ -69,12 +69,12 @@ public class EntrepriseServiceImpTest {
 		
 		
 	}
-	*/
+	
 	
 	@Test
 	public void testAffecteDepartment() {
 		ientrepriseservice.affecterDepartementAEntreprise(4, 5);
 		ientrepriseservice.getAllDepartementsNamesByEntreprise(5);
-	}
+	} */
 	
 }

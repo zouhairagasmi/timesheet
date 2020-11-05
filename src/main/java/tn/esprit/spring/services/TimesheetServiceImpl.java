@@ -32,10 +32,10 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	TimesheetRepository timesheetRepository;
 	@Autowired
 	EmployeRepository employeRepository;
-	
+	//DONE
 	public int ajouterMission(Mission mission) {
 		missionRepository.save(mission);
-		l.info("mission ajouté" +mission);
+		l.info("mission ajoutée avec succès :" +mission);
 		return mission.getId();
 	}
     
@@ -57,7 +57,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		}}
 		
 	}
-
+//DONE
 	public void ajouterTimesheet(int missionId, int employeId, Date dateDebut, Date dateFin) {
 		TimesheetPK timesheetPK = new TimesheetPK();
 		timesheetPK.setDateDebut(dateDebut);
@@ -72,7 +72,7 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		l.info("timesheet ajouté" );
 		
 	}
-
+//HDONE
 	
 	public void validerTimesheet(int missionId, int employeId, Date dateDebut, Date dateFin, int validateurId) {
 		l.info("In valider Timesheet");
@@ -93,16 +93,16 @@ public class TimesheetServiceImpl implements ITimesheetService {
 				for(Departement dep : validateur.getDepartements()){
 				if(dep.getId() == mission.getDepartement().getId()){
 					chefDeLaMission = true;
-					l.info("pour departement:"+dep+"chef de la mission = "+chefDeLaMission);
+					l.info("pour departementttttttttttttttttttttttttttttttttttttttttttttttttttttt:"+dep+"chef de la mission = "+chefDeLaMission);
 					break;
 				}
-			}
+				}
 			}
 			if(!chefDeLaMission){
-				l.info("l'employe doit etre chef de departement de la mission en question");
+				l.info("l'employe doit etre chef de departement de la mission en questionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
 				return;
-			}
-		}
+			
+		}}
 		
 		TimesheetPK timesheetPK = new TimesheetPK(missionId, employeId, dateDebut, dateFin);
 		Timesheet timesheet =timesheetRepository.findBytimesheetPK(timesheetPK);
@@ -114,17 +114,18 @@ public class TimesheetServiceImpl implements ITimesheetService {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		l.info("dateDebut : " + dateFormat.format(timesheet.getTimesheetPK().getDateDebut()));
 	}
-	
+	///HDONE
 	public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
 		
-		l.info("o");
+		l.info("les misssions dont leurs employeId=" +employeId);
 		return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
 		
 	}
 
-	
+	////DONE
 	public List<Employe> getAllEmployeByMission(int missionId) {
-		l.info("finding employeessssssssssssssssss.");
+		l.info("Employees whose their mission id="+missionId +timesheetRepository.getAllEmployeByMission(missionId) );
+		//l.info(timesheetRepository.getAllEmployeByMission(missionId));
 		return timesheetRepository.getAllEmployeByMission(missionId);
 	}
 

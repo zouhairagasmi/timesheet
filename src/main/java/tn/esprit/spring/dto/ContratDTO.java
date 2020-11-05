@@ -18,7 +18,6 @@ public class ContratDTO{
 	
 	private String typeContrat;
 	
-	
 	private float telephone;
 	
 	@OneToOne

@@ -37,7 +37,6 @@ public class Mission implements Serializable {
 		this.name = name;
 		this.description = description;
 	}
-	
 
 	public int getId() {
 		return id;
@@ -78,6 +77,12 @@ public class Mission implements Serializable {
 	public void setTimesheets(List<Timesheet> timesheets) {
 		this.timesheets = timesheets;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+
 	
 	
 
