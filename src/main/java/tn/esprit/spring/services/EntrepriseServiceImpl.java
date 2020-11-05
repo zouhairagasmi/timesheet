@@ -1,6 +1,7 @@
 package tn.esprit.spring.services;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -9,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Departement;
-import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
@@ -53,8 +52,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		if (valuee.isPresent()) {
 				Entreprise entrepriseManagedEntity = valuee.get();
 				
-		//Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
-		//Departement depManagedEntity = deptRepoistory.findById(depId).get();
+
 				
 		depManagedEntity.setEntreprise(entrepriseManagedEntity);
 		l.info("Departement affecté avec succes..");
@@ -112,18 +110,15 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 
 	public Entreprise getEntrepriseById(int entrepriseId) {
-		Optional<Entreprise> value = entrepriseRepoistory.findById(entrepriseId);
+		l.info("Getting Entreprise by Id...");
+		Optional<Entreprise> value = entrepriseRepoistory.findById(entrepriseId);		
 		if (value.isPresent()) {
-			Entreprise entrepriseManagedEntity = value.get();
-		 l.info("Entreprise touvée...." + entrepriseManagedEntity.getName());
-		 								
+			
+		Entreprise entrepriseManagedEntity = value.get();	
+		return entrepriseManagedEntity;
 	}
-		else  {
-			l.info("Entreprise non touvée....");
-			}
-		
-		return	value.get();
-		 
-	}	
+	return null;
+
+	}
 	
 }

@@ -95,47 +95,66 @@ public class Employe implements Serializable {
 		this.role = role;
 	}
 	
+	
+
+	
+	public Employe(int id, String prenom, String nom) {
+		super();
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+	}
+
+
+
 	public int getId() {
 		return id;
 	}
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
 	public String getPrenom() {
 		return prenom;
 	}
+
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 
+
 	public String getNom() {
 		return nom;
 	}
+
 
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
+
 	public String getEmail() {
 		return email;
 	}
-	 
-	public String getPassword() {
-		return password;
-	}
- 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 
 	public boolean isActif() {
@@ -152,29 +171,36 @@ public class Employe implements Serializable {
 		return role;
 	}
 
+
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
 
 	public List<Departement> getDepartements() {
 		return departements;
 	}
 
-	public void setDepartements(List<Departement> departement) {
-		this.departements = departement;
+
+	public void setDepartements(List<Departement> departements) {
+		this.departements = departements;
 	}
+
 
 	public Contrat getContrat() {
 		return contrat;
 	}
 
+
 	public void setContrat(Contrat contrat) {
 		this.contrat = contrat;
 	}
 
+
 	public List<Timesheet> getTimesheets() {
 		return timesheets;
 	}
+
 
 	public void setTimesheets(List<Timesheet> timesheets) {
 		this.timesheets = timesheets;

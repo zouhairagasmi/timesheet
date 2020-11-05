@@ -5,12 +5,16 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.5.RELEASE</version>
+		<version>2.2.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>tn.esprit.spring</groupId>
 	<artifactId>timesheet</artifactId>
+<<<<<<< HEAD
 	<version>1.2.12-SNAPSHOT</version>
+=======
+	<version>0.1.2-SNAPSHOT</version>
+>>>>>>> bbaae29974cbcccc6f9045ef0556957df3ead06c
 	<name>timesheet</name>
 	<description>timesheet</description>
 

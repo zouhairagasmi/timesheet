@@ -12,7 +12,6 @@ import tn.esprit.spring.entities.Timesheet;
 
 public class MissionDTO{
 	
-	
 	private String name;
 	
 	private String description;
