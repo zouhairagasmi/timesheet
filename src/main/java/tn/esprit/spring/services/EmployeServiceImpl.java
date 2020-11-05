@@ -138,16 +138,6 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public String getEmployePrenomById(int employeId) {
 		l.info("getEmployePrenomById loading...");
-<<<<<<< HEAD
-		Optional<Employe> value = employeRepository.findById(employeId);
-		
-		if(value.isPresent()) {
-			Employe value1 = value.get();
-		return value1.getPrenom();
-		}
-		else return null;
-=======
->>>>>>> branch 'master' of https://github.com/zouhairagasmi/timesheet.git
 		
 		Optional<Employe> value = employeRepository.findById(employeId);
 		Employe employeManagedEntity = new Employe();
